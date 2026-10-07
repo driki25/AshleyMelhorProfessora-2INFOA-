@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cajazeiras • Turismo &amp; História</title>
+<meta content="Guia visual dos pontos turísticos, históricos, culturais e naturais de Cajazeiras, Paraíba." name="description"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --pink:#ff3f9f; --pink2:#ff72bd; --purple:#7b2cff; --purple2:#b66cff;
+  --black:#09070d; --black2:#120d19; --white:#fff; --muted:#c9bfd2;
+  --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;background:
+  radial-gradient(circle at 15% 10%,rgba(255,63,159,.18),transparent 28%),
+  radial-gradient(circle at 90% 20%,rgba(123,44,255,.2),transparent 30%),
+  var(--black);color:var(--white);line-height:1.6;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0 48%,rgba(255,255,255,.015) 50%,transparent 52%);z-index:-1}
+a{color:inherit;text-decoration:none}
+.hero{min-height:78vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:70px 7%}
+.hero:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));filter:blur(110px);opacity:.22;right:-130px;top:-120px;animation:float 8s ease-in-out infinite}
+.hero-content{max-width:900px;position:relative;z-index:1}
+.kicker{color:#ff72bd;text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;font-weight:700;margin-bottom:18px}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif}
+h1{font-size:clamp(3.3rem,9vw,8rem);line-height:.9;letter-spacing:-.065em}
+.gradient{background:linear-gradient(100deg,#fff 5%,#ff75bd 42%,#9e63ff 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;color:var(--muted);font-size:1.12rem;margin:28px 0}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 19px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);font-weight:700;transition:.25s}
+.btn.primary{background:linear-gradient(100deg,var(--pink),var(--purple));border:0}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(255,63,159,.2)}
+.scroll{position:absolute;bottom:28px;left:7%;color:#8f8399;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+section{padding:85px 7%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}
+.section-head h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.045em}
+.section-head p{max-width:520px;color:var(--muted)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+.filter{cursor:pointer;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#100c16;color:#d9d0df;transition:.2s}
+.filter.active,.filter:hover{background:linear-gradient(100deg,var(--pink),var(--purple));color:#fff;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:.35s;position:relative}
+.card:hover{transform:translateY(-7px);border-color:rgba(255,114,189,.4);box-shadow:0 22px 55px rgba(0,0,0,.3)}
+.card.hidden{display:none}
+.card-img{height:230px;background:#18121f;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.card:hover img{transform:scale(1.055)}
+.card-img:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(9,7,13,.55),transparent 50%)}
+.tag{position:absolute;z-index:2;left:14px;top:14px;padding:6px 10px;border-radius:999px;background:rgba(9,7,13,.72);border:1px solid rgba(255,255,255,.14);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+.card-main{padding:21px}
+.card h3{font-size:1.3rem;margin-bottom:5px}
+.card .year{color:#ff72bd;font-weight:700;font-size:.85rem}
+.card button{width:100%;margin-top:18px;border:0;background:transparent;color:#fff;font-weight:700;text-align:left;cursor:pointer;padding:0;font-size:.92rem}
+.card button span{float:right;color:#ff72bd;font-size:1.2rem}
+.details{display:none;margin-top:17px;padding-top:17px;border-top:1px solid var(--line);color:#cfc5d6;font-size:.92rem}
+.card.open .details{display:block;animation:reveal .3s ease}
+.card.open button span{transform:rotate(45deg);display:inline-block}
+.sources{background:linear-gradient(135deg,rgba(255,63,159,.08),rgba(123,44,255,.08));border-top:1px solid var(--line)}
+.sources ul{columns:2;gap:40px;padding-left:20px;color:#cfc5d6}
+.sources li{margin:8px 0}
+footer{padding:35px 7%;border-top:1px solid var(--line);color:#8f8399;font-size:.84rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s}
+.reveal.visible{opacity:1;transform:none}
+@keyframes reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translate(-30px,35px) scale(1.08)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.hero{min-height:72vh;padding:55px 6%}.grid{grid-template-columns:1fr}section{padding:65px 6%}.section-head{display:block}.section-head p{margin-top:12px}.sources ul{columns:1}h1{font-size:4rem}.card-img{height:220px}}
+
+.verification-note{color:#c9bfd2;font-size:.85rem;margin:-15px 0 20px}.card-img img{background:#18121f}</style>
+</head>
+<body>
+<header class="hero">
+<div class="hero-content reveal">
+<div class="kicker">Paraíba • Sertão • Patrimônio</div>
+<h1>CAJAZEIRAS<br/><span class="gradient">EM FOCO.</span></h1>
+<p>Um guia visual pela história, cultura, fé e paisagens de Cajazeiras. Clique em cada lugar para abrir sua história e descobrir por que a cidade ficou conhecida como a “terra que ensinou a Paraíba a ler”.</p>
+<div class="btns">
+<a class="btn primary" href="#lugares">Explorar pontos turísticos ↓</a>
+<a class="btn" href="#fontes">Ver fontes</a>
+</div>
+</div>
+<div class="scroll">role para explorar</div>
+</header>
+<section id="lugares">
+<div class="section-head reveal">
+<div><div class="kicker">Mapa cultural</div><h2>Onde a história<br/>fica de pé.</h2></div>
+<p>Lista revisada com fontes municipais, patrimoniais e culturais. Itens sem confirmação suficiente foram retirados, e lugares que são partes do mesmo conjunto foram unificados para evitar duplicação.</p>
+</div>
+<p class="verification-note">✓ Lista revisada • sem duplicação • fotos não identificadas não foram inventadas</p><div class="filters reveal">
+<button class="filter active" data-filter="all">Todos</button>
+<button class="filter" data-filter="historico">Históricos</button>
+<button class="filter" data-filter="religioso">Religiosos</button>
+<button class="filter" data-filter="cultural">Culturais</button>
+<button class="filter" data-filter="natural">Naturais</button>
+<button class="filter" data-filter="lazer">Lazer</button>
+</div>
+<div class="grid"><article class="card reveal" data-cat="religioso historico"><div class="card-img"><img alt="Cristo Redentor" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Morro_do_Cristo_Redentor,_Cajazeiras_-_Paraíba.jpg"/><span class="tag">RELIGIOSO</span></div><div class="card-main"><h3>Cristo Redentor / Cristo Rei</h3><div class="year">15 de junho de 1939</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A estátua foi inaugurada em 15 de junho de 1939, no alto do Morro Cristo Rei, durante as celebrações do Primeiro Congresso Eucarístico Diocesano. Foi doada por Silvino Bandeira e é reconhecida como patrimônio histórico de Cajazeiras.</div></div></article><article class="card reveal" data-cat="religioso historico"><div class="card-img"><img alt="Catedral, Bispado e Praça Cardeal Arcoverde" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Catedral_de_Nossa_Senhora_da_Piedade,_Cajazeiras_(PB).jpg"/><span class="tag">RELIGIOSO</span></div><div class="card-main"><h3>Catedral + Bispado + Praça Cardeal Arcoverde</h3><div class="year">Conjunto histórico e religioso</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A Catedral de Nossa Senhora da Piedade, o Palácio Episcopal (Bispado) e a Praça Cardeal Arcoverde formam um dos conjuntos históricos mais importantes do centro de Cajazeiras. A Diocese foi criada em 1914; a praça surgiu nas primeiras décadas do século XX e fica em frente à Catedral e ao Palácio Episcopal.</div></div></article><article class="card reveal" data-cat="religioso historico"><div class="card-img"><img alt="Igreja Matriz de Nossa Senhora de Fátima" loading="lazy" src="https://4.bp.blogspot.com/_G66KasYLfW8/TMsIRB-KGbI/AAAAAAAABUI/vIXx1l7EPWs/s1600/igreja%2Bnossa%2Bsenhora%2Bde%2Bf%C3%A1tima%2B2010.jpg"/><span class="tag">RELIGIOSO</span></div><div class="card-main"><h3>Igreja Matriz de Nossa Senhora de Fátima</h3><div class="year">Uma das mais antigas da cidade</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A Igreja Matriz de Nossa Senhora de Fátima aparece entre os principais atrativos turísticos de Cajazeiras e é destacada em documentos municipais como a mais antiga igreja da cidade.</div></div></article><article class="card reveal" data-cat="religioso"><div class="card-img"><img alt="Igreja de São João Bosco" loading="lazy" src="https://2.bp.blogspot.com/-MpdOqs6OSg4/T-4MUWfsUcI/AAAAAAAACS8/e2Y_ZmZ3eo4/s1600/DSC_7505.JPG"/><span class="tag">RELIGIOSO</span></div><div class="card-main"><h3>Igreja de São João Bosco</h3><div class="year">Patrimônio religioso local</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A Igreja de São João Bosco é citada pela Prefeitura entre os atrativos turísticos de Cajazeiras e integra a paisagem religiosa e cultural do município.</div></div></article><article class="card reveal" data-cat="cultural"><div class="card-img"><img alt="Teatro Íracles Brocos Pires" loading="lazy" src="https://jornaldaparaiba.com.br/wp-content/uploads/2021/11/WhatsApp-Image-2021-11-10-at-09.45.19-1.jpeg"/><span class="tag">CULTURAL</span></div><div class="card-main"><h3>Teatro Íracles Brocos Pires (ICA)</h3><div class="year">Inaugurado em 26 de janeiro de 1985</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">Principal teatro de Cajazeiras e unidade da Funesc. Foi inaugurado em 26 de janeiro de 1985 e reinaugurado em 2018 após grande reforma. Recebe espetáculos, oficinas e eventos culturais.</div></div></article><article class="card reveal" data-cat="historico"><div class="card-img"><img alt="Antiga Estação Ferroviária" loading="lazy" src="https://www.estacoesferroviarias.com.br/ce_crato/fotos/cajazeiras9401.jpg"/><span class="tag">HISTORICO</span></div><div class="card-main"><h3>Antiga Estação Ferroviária</h3><div class="year">Memória ferroviária</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A antiga estação faz parte da memória da expansão ferroviária e é citada entre os atrativos turísticos de Cajazeiras. O conjunto ferroviário registra uma etapa importante da história urbana e econômica do município.</div></div></article><article class="card reveal" data-cat="natural lazer"><div class="card-img"><img alt="Açude Grande / Leblon" loading="lazy" src="https://4.bp.blogspot.com/-XWKFZx9nEkc/TxaApSGDHmI/AAAAAAAADh4/EFfE5KCz1N4/s1600/Bira%2BCajazeiras%2BAgo2006%2B013.jpg"/><span class="tag">NATURAL</span></div><div class="card-main"><h3>Açude Grande / Leblon</h3><div class="year">Açude construído em 1804</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">O Açude Grande, conhecido como Leblon em sua área de lazer, é um dos cartões-postais de Cajazeiras. Foi construído em 1804 para abastecimento e criação de animais e hoje é associado ao lazer e ao pôr do sol.</div></div></article><article class="card reveal" data-cat="natural lazer"><div class="card-img"><img alt="Açude Engenheiro Ávidos" loading="lazy" src="https://2.bp.blogspot.com/_XJWfSLyBHC8/TUcVrjM2D_I/AAAAAAAAADk/JmuecoTi25Y/w1200-h630-p-k-no-nu/A%25C3%25A7%C3%BAde%2BEng.%25C2%BA%2B%C3%81vidos%2B-%2BBoqueir%C3%A3o%2Bde%2BPiranhas%2B-%2BCajazeiras%2B%2528PB%2529%2B%252895%2529.jpg"/><span class="tag">NATURAL</span></div><div class="card-main"><h3>Açude Engenheiro Ávidos (Boqueirão)</h3><div class="year">Açude de Engenheiro Ávidos</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">O reservatório, também chamado de Boqueirão, é citado como atrativo natural e de turismo de aventura ligado a Cajazeiras. A área é associada a trilhas, rapel e esportes aquáticos.</div></div></article><article class="card reveal" data-cat="cultural historico"><div class="card-img"><img alt="Biblioteca Pública Municipal Dr. Castro Pinto" loading="lazy" src="https://cajazeiras.pb.gov.br/fotos/947/Img7_600x400.jpg"/><span class="tag">CULTURAL</span></div><div class="card-main"><h3>Biblioteca Pública Municipal Dr. Castro Pinto</h3><div class="year">Construída em 1974</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">A Biblioteca Pública Municipal Dr. Castro Pinto foi construída em 1974 e é um importante equipamento cultural da cidade. O prédio passou por revitalização e modernização.</div></div></article><article class="card reveal" data-cat="historico cultural"><div class="card-img"><img alt="Colégio Diocesano Padre Rolim" loading="lazy" src="https://diocesedecajazeiras.com.br/wp-content/uploads/2024/05/Colegio-Diocesano-Dom-Joao-Da-Mata-1024x568.jpeg"/><span class="tag">HISTORICO</span></div><div class="card-main"><h3>Colégio Diocesano Padre Rolim</h3><div class="year">Memória educacional</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">O Colégio Diocesano Padre Rolim está ligado à tradição educacional que marcou a formação de Cajazeiras e à identidade da cidade como “terra que ensinou a Paraíba a ler”.</div></div></article><article class="card reveal" data-cat="cultural lazer"><div class="card-img"><img alt="Praça do Xamegão" loading="lazy" src="https://cajazeiras.pb.gov.br/fotos/1971/Img14_600x400.jpg"/><span class="tag">CULTURAL</span></div><div class="card-main"><h3>Praça do Xamegão</h3><div class="year">Espaço das festas juninas</div><button onclick="toggleCard(this)">Ver história <span>+</span></button><div class="details">O Xamegão é um dos espaços tradicionais das festas juninas de Cajazeiras e recebe programação cultural, shows e quadrilhas durante o período junino.</div></div></article></div>
+</section>
+<section class="sources" id="fontes">
+<div class="section-head">
+<div><div class="kicker">Pesquisa</div><h2>Fontes usadas.</h2></div>
+<p>Os textos foram resumidos para o site. Para datas e patrimônio, foram priorizadas fontes institucionais e registros históricos.</p>
+</div>
+<ul>
+<li>Prefeitura Municipal de Cajazeiras — dados do município e atrativos turísticos.</li>
+<li>Fundação Espaço Cultural da Paraíba (Funesc) — Teatro Íracles Pires.</li>
+<li>Diocese de Cajazeiras — informações das paróquias e Catedral.</li>
+<li>IPHAEP / registros patrimoniais — tombamento da Estação Ferroviária.</li>
+<li>Paraíba Criativa — verbetes sobre patrimônio cultural.</li>
+<li>Plano Municipal de Gestão Integrada de Resíduos Sólidos — seção de turismo e eventos.</li>
+<li>A União — levantamento histórico e turístico de Cajazeiras.</li>
+<li>Estações Ferroviárias do Estado da Paraíba — histórico ferroviário.</li>
+<li>Jornal da Paraíba — registros fotográficos do Leblon e do Teatro.</li>
+<li>Wikimedia Commons / Creazilla — imagens com licença indicada nas respectivas páginas.</li>
+</ul>
+</section>
+<footer>
+<span>CAJAZEIRAS EM FOCO • Guia turístico e histórico</span>
+<span>Projeto visual em rosa • preto • branco • roxo</span>
+</footer>
+<script>function toggleCard(button){button.closest('.card').classList.toggle('open');}
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hidden',f!=='all'&&!c.dataset.cat.split(' ').includes(f)));}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+document.querySelectorAll('.card-img img').forEach(img=>img.addEventListener('error',()=>{img.removeAttribute('src');img.alt='Foto indisponível nesta fonte';img.style.objectFit='contain';img.style.padding='35px';},{once:true}));</script></body>
+</html>
